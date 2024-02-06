@@ -1,19 +1,21 @@
+'use client'
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 export const Navbar = () => {
-  return (
+  const [collaps, setCollaps ] = useState<boolean>(false)
+    return (
     <div className="w-full absolute top-0 left-0 z-[1]">
       <div className="max-w-[1440px] mx-auto flex items-center justify-between py-5 px-[120px] ">
-        <Image
+        {collaps &&<Image
           src={"./images/phone.svg"}
           alt={"email"}
           width={24}
           height={24}
-        />
+        />}
         <div className="w-max flex items-center gap-10">
-          <Link className=" font-normal text-lg" href={""}>
+          <Link onClick={() => {setCollaps(true)}} className=" font-normal text-lg"  href={""}>
             About Us
           </Link>
           <Link className=" font-normal text-lg" href={""}>
@@ -43,7 +45,7 @@ export const Navbar = () => {
             </Link>
           </div>
         </div>
-      </div>
-    </div>
+         </div>
+         </div>
   );
 };

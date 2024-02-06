@@ -11,23 +11,23 @@ export default function Home() {
   return (
     <>
       <div
-        className="w-full h-screen relative bg-no-repeat bg-cover bg-center"
+        className="w-full h-screen relative bg-no-repeat bg-cover bg-center  "
         style={{
           backgroundImage: `url(./images/banner-bg.png)`,
         }}
       >
-        <div className="max-w-7xl h-full mx-auto px-5 flex flex-col gap-7 items-center justify-center">
-          <h1 className="font-extrabold text-5xl text-white">
+        <div className="max-w-7xl h-full mx-auto px-5 flex flex-col gap-7 items-center justify-center sm:items-center ">
+          <h1 className="font-extrabold text-5xl text-white text-center max-md:text-4xl sm:font-boldtext-lg ">
             Hi, I am
             <span className="text-yellow"> Jhon Doe</span>
           </h1>
-          <p className="font-normal text-lg text-white w-full md:w-[691px] mx-auto text-center ">
+          <p className="font-normal text-lg text-white w-full text-center  md:w-[691px] mx-auto  sm:w-[400px]  ">
             I am a frontend web developer. I can provide clean code and pixel
             perfect design. I also make website more & more interactive with web
             animations.
           </p>
           <div className="flex items-center gap-10">
-            <div className="w-[50px] h-[50px] flex items-center justify-center border border-gray rounded-full ">
+            <div className="w-[50px] h-[50px]  flex items-center justify-center border border-gray rounded-full ">
               <div className="relative w-5 h-5">
                 <Image src={"./images/facebook.svg"} fill alt={"facebook"} />
               </div>
@@ -35,12 +35,14 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="max-w-[1440px] mx-auto px-[120px] py-[90px] ">
+
+
+      <div className="max-w-[1440px] mx-auto px-[120px] py-[90px] md:px-[80px] sm:px-[40px] ">
         <div className="w-full mb-28">
-          <h3 className="font-bold text-4xl text-white w-max border-b-[3px] border-white mb-10">
+          <h3 className="font-bold text-4xl text-white w-max border-b-[3px] border-white mb-10 max-md:text-3xl">
             Services
           </h3>
-          <div className="w-full grid grid-cols-3 gap-6">
+          <div className="w-full grid grid-cols-3 gap-6 lg:grid-cols-2 md:grid-cols-2  ">
             <div className=" w-full rounded-2xl  bg-gray1 overflow-hidden ">
               <div className="w-full h-[200px] bg-yellow relative  "></div>
               <div className="w-full flex flex-col  justify-between gap-2 text-left p-6 ">
@@ -61,9 +63,9 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="w-full grid grid-cols-2 items-start gap-20 mb-28">
+        <div className="w-full grid grid-cols-2 items-start gap-20 mb-28 max-lg:grid-cols-1">
           <div className="">
-            <h3 className="font-bold text-4xl text-white w-max border-b-[3px] border-white mb-[76px]">
+            <h3 className="font-bold text-4xl text-white w-max border-b-[3px] border-white mb-[76px] max-md:text-3xl ">
               About Us
             </h3>
             <p className="font-normal text-lg text-white">
@@ -76,14 +78,58 @@ export default function Home() {
               More
             </button>
           </div>
-          <img src="./images/about.png" alt="img" className="w-max h-auto" />
+          <img src="./images/about.png" alt="img" className="w-max h-auto max-lg:items-center" />
         </div>
 
-        <div className="w-full">
-          <h3 className="font-bold text-4xl text-white w-max border-b-[3px] border-white mb-[55px]">
-            contact Me
+
+       <div className="">
+        <div className="   flex flex-col items-center justify-center mb-[50px]">
+          <h3 className="font-bold text-4xl text-center text-white w-max border-b-[3px] border-white mb-[20px] max-md:text-3xl">
+              Our Happy Clients
+            </h3>
+            <p className="font-normal text-medium text-white text-center mb-[20px]">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic
+              deleniti quo porro illo tempora non rerum.
+            </p>
+            </div>
+            <div className="w-full grid grid-cols-3 gap-6 mb-[50px] md:grid-cols-2 sm:grid-cols-1 items-center">
+              <div className="w-[420px] h-[290px]  rounded hover:border-2 hover:border-secondaryBdr bg-secondary overflow-hidden p-[25px] ">
+                 <div className="flex mt-2 ">
+                     <div className=" ">
+                     <img src="./images/profile.jpg" alt="img" className="w-[60px] h-[60px] rounded-full bg-cover bg-center" />
+                     </div >
+                     <div className="ml-[10px]">
+                         <h6 className="font-medium text-lg text-white mt-1">Robert Martin</h6>
+                         <p className="font-normal  text-sm text-white">UI/UX Designer</p> 
+                        
+                     </div>
+                     <div className=" flex items-center justify-items-end gap-1 ml-20"> 
+                     <img src="./images/star1.svg"  alt="star" className="w-[15px] h-[15px] color:secondaryBdr"/>
+                     <img src="./images/star1.svg"  alt="star" className="w-[15px] h-[15px] color:secondaryBdr"/>
+                     <img src="./images/star1.svg"  alt="star" className="w-[15px] h-[15px] color:secondaryBdr"/>
+                     <img src="./images/star2.svg"  alt="star" className="w-[15px] h-[15px] color:secondaryBdr"/>
+                     <img src="./images/star2.svg"  alt="star" className="w-[15px] h-[15px] color:secondaryBdr"/>
+                     </div>
+                    
+                 </div>
+                 <p className="font-normal leading-5  text-sm text-white mt-8 mb-8">
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                  Lorem Ipsum has been the industry's standard dummy text  standard dummy text ever since the 1500s.
+                  printing and typesetting industry. 
+                       
+                       </p>
+                       <p className="font-normal  text-sm text-white w-max border-b-[1px]">Mar 11, 2023</p>
+              </div>
+            </div>
+       
+       </div>
+
+
+        <div className="w-full  ">
+          <h3 className="font-bold text-4xl text-white w-max border-b-[3px] border-white mb-[55px] max-md:text-3xl">
+            Contact Us
           </h3>
-          <div className="w-full grid grid-cols-2 items-start gap-20">
+          <div className="w-full grid grid-cols-2 items-start gap-20 max-md:grid-cols-1" >
             <div className="">
               <p className="font-medium text-2xl text-white mb-7">
                 Just Say Hello
