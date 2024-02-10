@@ -16,12 +16,12 @@ export default function Home() {
           backgroundImage: `url(./images/banner-bg.png)`,
         }}
       >
-        <div className="max-w-7xl h-full mx-auto px-5 flex flex-col gap-7 items-center justify-center sm:items-center ">
-          <h1 className="font-extrabold text-5xl text-white text-center max-md:text-4xl sm:font-boldtext-lg ">
+        <div className="max-w-7xl h-full mx-auto px-5 flex flex-col gap-7 items-center justify-center min-sm:items-center ">
+          <h1 className="font-extrabold text-5xl text-white text-center  max-sm:text-3xl ">
             Hi, I am
             <span className="text-yellow"> Jhon Doe</span>
           </h1>
-          <p className="font-normal text-lg text-white w-full text-center  md:w-[691px] mx-auto  sm:w-[400px]  ">
+          <p className="font-normal text-lg text-white w-full text-center max-sm:font-thin     ">
             I am a frontend web developer. I can provide clean code and pixel
             perfect design. I also make website more & more interactive with web
             animations.
@@ -37,12 +37,12 @@ export default function Home() {
       </div>
 
 
-      <div className="max-w-[1440px] mx-auto px-[120px] py-[90px] md:px-[80px] sm:px-[40px] ">
+      <div className="max-w-[1440px] mx-auto px-[120px] py-[90px] md:px-[32px] max-sm:px-[20px] ">
         <div className="w-full mb-28">
           <h3 className="font-bold text-4xl text-white w-max border-b-[3px] border-white mb-10 max-md:text-3xl">
             Services
           </h3>
-          <div className="w-full grid grid-cols-3 gap-6 lg:grid-cols-2 md:grid-cols-2  ">
+          <div className="w-full grid grid-cols-3 gap-6 max-sm:grid-cols-1 max-md:grid-cols-2  ">
             <div className=" w-full rounded-2xl  bg-gray1 overflow-hidden ">
               <div className="w-full h-[200px] bg-yellow relative  "></div>
               <div className="w-full flex flex-col  justify-between gap-2 text-left p-6 ">
@@ -60,6 +60,44 @@ export default function Home() {
                 </button>
               </div>
             </div>
+
+            <div className=" w-full rounded-2xl  bg-gray1 overflow-hidden ">
+              <div className="w-full h-[200px] bg-yellow relative  "></div>
+              <div className="w-full flex flex-col  justify-between gap-2 text-left p-6 ">
+                <h4 className="font-semibold text-2xl text-primary ">
+                  Commnuications
+                </h4>
+                <p className="font-medium text-base  text-primary ">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad
+                  quisquam possimus assumenda officiis laboriosam necessitatibus
+                  quaerat ea mollitia ducimus. Sed temporibus non neque.
+                  Excepturi odio aperiam perspiciatis, tenetur deleniti atque.
+                </p>
+                <button className="w-[130px] mt-2 px-4 py-2 bg-primary flex items-center justify-center rounded-xl font-medium text-lg text-white ">
+                  More
+                </button>
+              </div>
+            </div>
+
+            <div className=" w-full rounded-2xl  bg-gray1 overflow-hidden ">
+              <div className="w-full h-[200px] bg-yellow relative  "></div>
+              <div className="w-full flex flex-col  justify-between gap-2 text-left p-6 ">
+                <h4 className="font-semibold text-2xl text-primary ">
+                  Commnuications
+                </h4>
+                <p className="font-medium text-base  text-primary ">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad
+                  quisquam possimus assumenda officiis laboriosam necessitatibus
+                  quaerat ea mollitia ducimus. Sed temporibus non neque.
+                  Excepturi odio aperiam perspiciatis, tenetur deleniti atque.
+                </p>
+                <button className="w-[130px] mt-2 px-4 py-2 bg-primary flex items-center justify-center rounded-xl font-medium text-lg text-white ">
+                  More
+                </button>
+              </div>
+            </div>
+
+            
           </div>
         </div>
 
@@ -78,7 +116,7 @@ export default function Home() {
               More
             </button>
           </div>
-          <img src="./images/about.png" alt="img" className="w-max h-auto max-lg:items-center" />
+          <img src="./images/about.png" alt="img" className="w-max h-auto " />
         </div>
 
 
@@ -92,27 +130,28 @@ export default function Home() {
               deleniti quo porro illo tempora non rerum.
             </p>
             </div>
-            <div className="w-full grid grid-cols-3 gap-6 mb-[50px] md:grid-cols-2 sm:grid-cols-1 items-center">
-              <div className="w-[420px] h-[290px]  rounded hover:border-2 hover:border-secondaryBdr bg-secondary overflow-hidden p-[25px] ">
+            <div className=" w-full grid grid-cols-3 gap-6 mb-[50px] max-sm:grid-cols-1 max-md:grid-cols-2">
+
+              <div className="w-full h-[300px]  rounded hover:border-2 hover:border-secondaryBdr bg-secondary overflow-hidden p-[25px] max-sm:grid-cols-1 max-lg:p-[10px] max-md:p-[15px] max-sm:h-[300px] ">
                  <div className="flex mt-2 ">
                      <div className=" ">
-                     <img src="./images/profile.jpg" alt="img" className="w-[60px] h-[60px] rounded-full bg-cover bg-center" />
+                       <img src="./images/profile.jpg" alt="img" className="w-[60px] h-[60px] rounded-full bg-cover bg-center max-md:w-[50px] max-md:h-[50px]  max-lg:w-[40px] max-lg:h-[40px]  " />
                      </div >
-                     <div className="ml-[10px]">
-                         <h6 className="font-medium text-lg text-white mt-1">Robert Martin</h6>
-                         <p className="font-normal  text-sm text-white">UI/UX Designer</p> 
+                     <div className="ml-[10px] max-md:ml-[8px] max-lg:ml-[8px] ">
+                         <h6 className="font-medium text-lg text-white mt-1 max-lg:font-normal max-lg:text-sm max-md:font-normal max-md:text-base">Robert Martin</h6>
+                         <p className="font-normal  text-sm text-white max-md:font-light  max-lg:font-light">UI/UX Designer</p> 
                         
                      </div>
-                     <div className=" flex items-center justify-items-end gap-1 ml-20"> 
-                     <img src="./images/star1.svg"  alt="star" className="w-[15px] h-[15px] color:secondaryBdr"/>
-                     <img src="./images/star1.svg"  alt="star" className="w-[15px] h-[15px] color:secondaryBdr"/>
-                     <img src="./images/star1.svg"  alt="star" className="w-[15px] h-[15px] color:secondaryBdr"/>
-                     <img src="./images/star2.svg"  alt="star" className="w-[15px] h-[15px] color:secondaryBdr"/>
-                     <img src="./images/star2.svg"  alt="star" className="w-[15px] h-[15px] color:secondaryBdr"/>
+                     <div className=" flex items-center justify-items-end gap-1 ml-[30px] max-md:ml-[15px]  max-lg:ml-[5px]"> 
+                     <img src="./images/star1.svg"  alt="star" className="w-[15px] h-[15px] color:secondaryBdr max-lg:w-[13px] max-lg:h-[13px]"/>
+                     <img src="./images/star1.svg"  alt="star" className="w-[15px] h-[15px] max-lg:w-[13px] max-lg:h-[13px] color:secondaryBdr"/>
+                     <img src="./images/star1.svg"  alt="star" className="w-[15px] h-[15px] max-lg:w-[13px] max-lg:h-[13px] color:secondaryBdr"/>
+                     <img src="./images/star2.svg"  alt="star" className="w-[15px] h-[15px] max-lg:w-[13px] max-lg:h-[13px] color:secondaryBdr"/>
+                     <img src="./images/star2.svg"  alt="star" className="w-[15px] h-[15px] max-lg:w-[13px] max-lg:h-[13px] color:secondaryBdr"/>
                      </div>
                     
                  </div>
-                 <p className="font-normal leading-5  text-sm text-white mt-8 mb-8">
+                 <p className="font-normal text-sm text-white mt-8 mb-5  max-lg:mt-6">
                   Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                   Lorem Ipsum has been the industry's standard dummy text  standard dummy text ever since the 1500s.
                   printing and typesetting industry. 
@@ -120,9 +159,68 @@ export default function Home() {
                        </p>
                        <p className="font-normal  text-sm text-white w-max border-b-[1px]">Mar 11, 2023</p>
               </div>
+
+              <div className="w-full h-[300px]  rounded hover:border-2 hover:border-secondaryBdr bg-secondary overflow-hidden p-[25px] max-sm:grid-cols-1 max-lg:p-[10px] max-md:p-[15px] max-sm:h-[300px] ">
+                 <div className="flex mt-2 ">
+                     <div className=" ">
+                       <img src="./images/profile.jpg" alt="img" className="w-[60px] h-[60px] rounded-full bg-cover bg-center max-md:w-[50px] max-md:h-[50px]  max-lg:w-[40px] max-lg:h-[40px]  " />
+                     </div >
+                     <div className="ml-[10px] max-md:ml-[8px] max-lg:ml-[8px] ">
+                         <h6 className="font-medium text-lg text-white mt-1 max-lg:font-normal max-lg:text-sm max-md:font-normal max-md:text-base">Robert Martin</h6>
+                         <p className="font-normal  text-sm text-white max-md:font-light  max-lg:font-light">UI/UX Designer</p> 
+                        
+                     </div>
+                     <div className=" flex items-center justify-items-end gap-1 ml-[30px] max-md:ml-[15px]  max-lg:ml-[5px]"> 
+                     <img src="./images/star1.svg"  alt="star" className="w-[15px] h-[15px] color:secondaryBdr max-lg:w-[13px] max-lg:h-[13px]"/>
+                     <img src="./images/star1.svg"  alt="star" className="w-[15px] h-[15px] max-lg:w-[13px] max-lg:h-[13px] color:secondaryBdr"/>
+                     <img src="./images/star1.svg"  alt="star" className="w-[15px] h-[15px] max-lg:w-[13px] max-lg:h-[13px] color:secondaryBdr"/>
+                     <img src="./images/star2.svg"  alt="star" className="w-[15px] h-[15px] max-lg:w-[13px] max-lg:h-[13px] color:secondaryBdr"/>
+                     <img src="./images/star2.svg"  alt="star" className="w-[15px] h-[15px] max-lg:w-[13px] max-lg:h-[13px] color:secondaryBdr"/>
+                     </div>
+                    
+                 </div>
+                 <p className="font-normal text-sm text-white mt-8 mb-5  max-lg:mt-6">
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                  Lorem Ipsum has been the industry's standard dummy text  standard dummy text ever since the 1500s.
+                  printing and typesetting industry. 
+                       
+                       </p>
+                       <p className="font-normal  text-sm text-white w-max border-b-[1px]">Mar 11, 2023</p>
+              </div>
+                    
+                 
+              <div className="w-full h-[300px]  rounded hover:border-2 hover:border-secondaryBdr bg-secondary overflow-hidden p-[25px] max-sm:grid-cols-1 max-lg:p-[10px] max-md:p-[15px] max-sm:h-[300px] ">
+                 <div className="flex mt-2 ">
+                     <div className=" ">
+                       <img src="./images/profile.jpg" alt="img" className="w-[60px] h-[60px] rounded-full bg-cover bg-center max-md:w-[50px] max-md:h-[50px]  max-lg:w-[40px] max-lg:h-[40px]  " />
+                     </div >
+                     <div className="ml-[10px] max-md:ml-[8px] max-lg:ml-[8px] ">
+                         <h6 className="font-medium text-lg text-white mt-1 max-lg:font-normal max-lg:text-sm max-md:font-normal max-md:text-base">Robert Martin</h6>
+                         <p className="font-normal  text-sm text-white max-md:font-light  max-lg:font-light">UI/UX Designer</p> 
+                        
+                     </div>
+                     <div className=" flex items-center justify-items-end gap-1 ml-[30px] max-md:ml-[15px]  max-lg:ml-[5px]"> 
+                     <img src="./images/star1.svg"  alt="star" className="w-[15px] h-[15px] color:secondaryBdr max-lg:w-[13px] max-lg:h-[13px]"/>
+                     <img src="./images/star1.svg"  alt="star" className="w-[15px] h-[15px] max-lg:w-[13px] max-lg:h-[13px] color:secondaryBdr"/>
+                     <img src="./images/star1.svg"  alt="star" className="w-[15px] h-[15px] max-lg:w-[13px] max-lg:h-[13px] color:secondaryBdr"/>
+                     <img src="./images/star2.svg"  alt="star" className="w-[15px] h-[15px] max-lg:w-[13px] max-lg:h-[13px] color:secondaryBdr"/>
+                     <img src="./images/star2.svg"  alt="star" className="w-[15px] h-[15px] max-lg:w-[13px] max-lg:h-[13px] color:secondaryBdr"/>
+                     </div>
+                    
+                 </div>
+                 <p className="font-normal text-sm text-white mt-8 mb-5  max-lg:mt-6">
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                  Lorem Ipsum has been the industry's standard dummy text  standard dummy text ever since the 1500s.
+                  printing and typesetting industry. 
+                       
+                       </p>
+                       <p className="font-normal  text-sm text-white w-max border-b-[1px]">Mar 11, 2023</p>
+              </div>
+
+              
+
             </div>
-       
-       </div>
+        </div>
 
 
         <div className="w-full  ">
@@ -251,7 +349,7 @@ export default function Home() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-[130px] mt-10 px-4 py-2 bg-white flex items-center justify-center rounded-xl font-medium text-lg text-primary "
+                      className="w-[130px] mt-10 px-4 py-2 bg-white flex items-center justify-center rounded-xl font-medium text-lg text-primary max-sm:w-full "
                     >
                       Submit
                     </button>
@@ -290,12 +388,14 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
+
                 <div className="flex items-center gap-6">
                   <div className="w-[50px] h-[50px] flex items-center justify-center border border-gray rounded-full ">
                     <div className="relative w-5 h-5">
                       <Image src={"./images/phone.svg"} fill alt={"facebook"} />
                     </div>
                   </div>
+                  
                   <div className="">
                     <h6 className="font-medium text-xl text-white mb-1">
                       Phone
@@ -306,25 +406,25 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
+ 
                 <div className="flex items-center gap-6">
                   <div className="w-[50px] h-[50px] flex items-center justify-center border border-gray rounded-full ">
                     <div className="relative w-5 h-5">
-                      <Image
-                        src={"./images/address.svg"}
-                        fill
-                        alt={"facebook"}
-                      />
+                      <Image src={"./images/address.svg"} fill alt={"facebook"} />
                     </div>
                   </div>
+                  
                   <div className="">
                     <h6 className="font-medium text-xl text-white mb-1">
                       Address
                     </h6>
                     <p className="font-normal text-base text-white">
-                      2661 High Meadow Lane Bear Creek, Olancha, KY 93544
+                    2661 High Meadow , <br />
+                    Olancha, KY 93544
                     </p>
                   </div>
                 </div>
+                
 
                 <div className="">
                   <p className="font-normal text-xl text-white mb-4">
