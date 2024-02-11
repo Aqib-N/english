@@ -1,13 +1,16 @@
-"use client";
-
 import { Formik } from "formik";
 import Image from "next/image";
+import { draftMode } from "next/headers";
+import { getAllPosts } from "../../lib/api";
 
-interface Error {
-  email: string;
-}
+export default async function Home() {
+  const { isEnabled } = draftMode();
+  const allPosts = await getAllPosts(isEnabled);
+  // const heroPost = allPosts;
+  // const morePosts = allPosts.slice(1);
 
-export default function Home() {
+  console.log(allPosts);
+
   return (
     <>
       <div
@@ -88,130 +91,6 @@ export default function Home() {
               <p className="font-medium text-2xl text-white mb-7">
                 Just Say Hello
               </p>
-              <Formik
-                initialValues={{
-                  email: "",
-                  name: "",
-                  subject: "",
-                  message: "",
-                }}
-                validate={(values) => {
-                  const errors: any = {};
-                  if (!values.message) {
-                    errors.message = "Required";
-                  }
-                  if (!values.name) {
-                    errors.name = "Required";
-                  }
-                  if (!values.subject) {
-                    errors.subject = "Required";
-                  }
-                  if (!values.email) {
-                    errors.email = "Required";
-                  } else if (
-                    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
-                      values.email,
-                    )
-                  ) {
-                    errors.email = "Invalid email address";
-                  }
-                  return errors;
-                }}
-                onSubmit={(values, { setSubmitting }) => {
-                  setTimeout(() => {
-                    alert(JSON.stringify(values, null, 2));
-                    setSubmitting(false);
-                  }, 400);
-                }}
-              >
-                {({
-                  values,
-                  errors,
-                  touched,
-                  handleChange,
-                  handleBlur,
-                  handleSubmit,
-                  isSubmitting,
-                  /* and other goodies */
-                }) => (
-                  <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                    <div className="flex flex-col gap-2">
-                      <label className="text-base text-white">Your Name</label>
-                      <input
-                        type="name"
-                        name="name"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value={values.name}
-                        placeholder="name"
-                        className="w-full px-4 py-3 font-medium text-lg text-white rounded-xl placeholder:text-gray border border-gray bg-primaryRGB"
-                      />
-                      <p className="text-sm text-[red]">
-                        {errors.name && touched.name && errors.name}
-                      </p>
-                    </div>
-                    <div className="flex flex-col gap-2">
-                      <label className="text-base text-white">Your Email</label>
-                      <input
-                        type="email"
-                        name="email"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value={values.email}
-                        placeholder="Email"
-                        className="w-full px-4 py-3 font-medium text-lg text-white rounded-xl placeholder:text-gray border border-gray bg-primaryRGB"
-                      />
-                      <p className="text-sm text-[red]">
-                        {" "}
-                        {errors.email && touched.email && errors.email}
-                      </p>
-                    </div>
-
-                    <div className="flex flex-col gap-2">
-                      <label className="text-base text-white">
-                        Your Subject
-                      </label>
-                      <input
-                        type="subject"
-                        name="subject"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value={values.subject}
-                        placeholder="subject"
-                        className="w-full px-4 py-3 font-medium text-lg text-white rounded-xl placeholder:text-gray border border-gray bg-primaryRGB"
-                      />{" "}
-                      <p className="text-sm text-[red]">
-                        {errors.subject && touched.subject && errors.subject}
-                      </p>
-                    </div>
-                    <div className="flex flex-col gap-2">
-                      <label className="text-base text-white">
-                        Your Message
-                      </label>
-                      <textarea
-                        name="message"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value={values.message}
-                        placeholder="message"
-                        rows={5}
-                        className="w-full px-4 py-3 font-medium text-lg text-white rounded-xl placeholder:text-gray border border-gray bg-primaryRGB"
-                      />
-                      <p className="text-sm text-[red]">
-                        {errors.message && touched.message && errors.message}
-                      </p>
-                    </div>
-
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-[130px] mt-10 px-4 py-2 bg-white flex items-center justify-center rounded-xl font-medium text-lg text-primary "
-                    >
-                      Submit
-                    </button>
-                  </form>
-                )}
-              </Formik>
             </div>
             <div className="w-full">
               <p className="font-medium text-2xl text-white mb-7">

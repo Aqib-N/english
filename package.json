@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "cf-content-types-generator": "^2.14.0",
     "contentful": "^10.6.16",
     "formik": "^2.4.5",
     "next": "14.0.4",
