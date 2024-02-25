@@ -44,26 +44,24 @@ const ContactSection = ({ data }: any) => {
               return errors;
             }}
             onSubmit={async (values, { setSubmitting, resetForm }) => {
+              setLoader(true); // Show loader when form submission starts
               try {
-                axios
-                  .post(
-                    "https://sheet.best/api/sheets/bf5d691e-1857-4841-bd60-c698ba4595cf",
-                    {
-                      Name: values.name,
-                      Email: values.email,
-                      Subject: values.subject,
-                      Message: values.message,
-                    },
-                  )
-                  .then((response) => {
-                    setSubmitting(false);
-                    resetForm();
-                  });
-                setLoader(true);
+                await axios.post(
+                  "https://sheet.best/api/sheets/bf5d691e-1857-4841-bd60-c698ba4595cf",
+                  {
+                    Name: values.name,
+                    Email: values.email,
+                    Subject: values.subject,
+                    Message: values.message,
+                  },
+                );
+                // Reset form and setSubmitting only if the request is successful
+                resetForm();
+                setSubmitting(false);
               } catch (error) {
                 console.error("Error occurred:", error);
               } finally {
-                setLoader(false);
+                setLoader(false); // Hide loader when form submission completes
               }
             }}
           >
