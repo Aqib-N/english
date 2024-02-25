@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import { homePage } from "@/services";
 import Image from "next/image";
@@ -7,7 +8,7 @@ import React, { useEffect, useState } from "react";
 export const Navbar = () => {
   const [open, setOpen] = useState<any>(false);
   const [data, setData] = useState<any>([]);
-  const [navbarData, setNavbarData] = useState({});
+  const [navbarData, setNavbarData] = useState<any>({});
 
   useEffect(() => {
     homePageData();
@@ -29,7 +30,12 @@ export const Navbar = () => {
   return (
     <div className="w-full absolute top-0 left-0 z-[1]">
       <div className="max-w-[1440px] mx-auto flex items-center justify-between py-5 px-[120px] max-md:px-[20px] ">
-        <Image src={"/images/phone.svg"} alt={"email"} width={24} height={24} />
+        <Image
+          src={navbarData?.webLogo?.url}
+          alt={"email"}
+          width={24}
+          height={24}
+        />
 
         <button
           onClick={() => setOpen(!open)}
@@ -46,16 +52,19 @@ export const Navbar = () => {
              open ? "top-0" : "top-[-490px]"
            }  `}
         >
-          <Link className=" font-normal text-lg" href={""}>
-            About Us
-          </Link>
-          <Link className=" font-normal text-lg" href={""}>
-            Services
-          </Link>
+          {navbarData?.navLinks?.map((item: any, index: number) => (
+            <Link
+              key={index}
+              className=" font-normal text-lg"
+              href={item?.pageLink || ""}
+            >
+              {item?.pageName}
+            </Link>
+          ))}
 
           <div className="flex items-center align-center gap-5 max-md:flex-col  ">
             <div className="w-[1px] h-[18px] bg-yellow max-md:hidden" />
-            <Link className=" font-normal text-lg" href={""}>
+            <Link className="font-normal text-lg" href={""}>
               <Image
                 src={"/images/email.svg"}
                 alt={"email"}
@@ -72,7 +81,7 @@ export const Navbar = () => {
                   width={24}
                   height={24}
                 />
-                <p className="text-yellow "> +1 971 234 1508</p>
+                <p className="text-yellow ">{navbarData?.phoneNumber}</p>
               </div>
             </Link>
           </div>

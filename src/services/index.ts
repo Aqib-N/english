@@ -90,13 +90,16 @@ export const homePage = async () => {
             webLogo {
               url
             }
-            navLinks {
-              pageLink
-              pageName
-            }
             phoneNumber
             email
             sectionName
+            navLinks {
+              ... on PageName {
+                id
+                pageName
+                pageLink
+              }
+            }
           }
         }
       }

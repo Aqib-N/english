@@ -51,8 +51,6 @@ export default function Home() {
     setHeroSection(heroSectionData?.[0]);
   }, [data?.homePages]);
 
-  console.log(contactSection);
-
   return (
     <>
       <div className="w-full h-screen relative   ">
