@@ -8,6 +8,7 @@ import ServiceSection from "@/components/ServiceSection";
 import AboutSection from "@/components/AboutSection";
 import ClientSection from "@/components/ClientSection";
 import ContactSection from "@/components/ContantSection";
+import Head from "next/head";
 
 export default function Home() {
   const [data, setData] = useState<any>([]);
@@ -50,6 +51,20 @@ export default function Home() {
     setServiceSection(serviceSectionData?.[0]);
     setHeroSection(heroSectionData?.[0]);
   }, [data?.homePages]);
+
+  useEffect(() => {
+    // Dynamically load the ElfSight script only on the client-side
+    const script = document.createElement("script");
+    script.src = "https://static.elfsight.com/platform/platform.js";
+    script.setAttribute("data-use-service-core", "");
+    script.defer = true;
+    document.body.appendChild(script);
+
+    return () => {
+      // Clean up function to remove the script when the component is unmounted
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <>

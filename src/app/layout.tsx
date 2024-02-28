@@ -23,6 +23,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={interFont.variable}>
+        <div
+          className="elfsight-app-782260db-1edf-48d4-9f74-58e8ac4686bd"
+          data-elfsight-app-lazy
+        ></div>
         <Navbar />
         {children}
       </body>

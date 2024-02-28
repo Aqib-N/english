@@ -17,12 +17,15 @@
     "next-mdx-remote": "^4.4.1",
     "react": "^18",
     "react-dom": "^18",
-    "react-rating": "^2.0.5"
+    "react-rating": "^2.0.5",
+    "react-select": "^5.8.0",
+    "react-select-country-list": "^2.2.3"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-select-country-list": "^2.2.3",
     "autoprefixer": "^10.4.16",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",

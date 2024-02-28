@@ -1,11 +1,26 @@
-import React, { useState } from "react";
+//eslint-disable
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Formik } from "formik";
+import { Formik, FormikErrors } from "formik";
 import Image from "next/image";
 import Link from "next/link";
 
 const ContactSection = ({ data }: any) => {
   const [loader, setLoader] = useState(false);
+  const [countries, setCountries] = useState<any | undefined>([]);
+  const [selectedCountry, setSelectedCountry] = useState<any>({});
+
+  useEffect(() => {
+    fetch(
+      "https://valid.layercode.workers.dev/list/countries?format=select&flags=true&value=code",
+    )
+      .then((response: any) => response.json())
+      .then((data: any) => {
+        setCountries(data.countries);
+        setSelectedCountry(data.userSelectValue);
+      });
+  }, []);
+
   return (
     <div className="w-full  ">
       <h3 className="font-bold text-4xl text-white w-max border-b-[3px] border-white mb-[55px] max-md:text-3xl">
@@ -20,27 +35,35 @@ const ContactSection = ({ data }: any) => {
             initialValues={{
               name: "",
               email: "",
-              subject: "",
+              courses: "",
+              phoneNumber: "",
+              postalCode: "",
+              city: "",
+              country: "" || selectedCountry,
               message: "",
             }}
-            validate={(values) => {
+            validate={(values: any) => {
               const errors: any = {};
-              if (!values.message) {
-                errors.message = "Required";
-              }
+
               if (!values.name) {
                 errors.name = "Required";
               }
-              if (!values.subject) {
-                errors.subject = "Required";
+              if (!values.courses) {
+                errors.courses = "Required";
               }
-              if (!values.email) {
-                errors.email = "Required";
-              } else if (
-                !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-              ) {
-                errors.email = "Invalid email address";
+              if (!values.phoneNumber) {
+                errors.phoneNumber = "Required";
               }
+              if (!values.postalCode) {
+                errors.postalCode = "Required";
+              }
+              if (!values.city) {
+                errors.city = "Required";
+              }
+              if (!values.country) {
+                errors.country = "Required";
+              }
+
               return errors;
             }}
             onSubmit={async (values, { setSubmitting, resetForm }) => {
@@ -51,7 +74,11 @@ const ContactSection = ({ data }: any) => {
                   {
                     Name: values.name,
                     Email: values.email,
-                    Subject: values.subject,
+                    Courses: values.courses,
+                    "Phone Number": values.phoneNumber,
+                    Country: values.country,
+                    City: values.city,
+                    "Postal Code": values.postalCode,
                     Message: values.message,
                   },
                 );
@@ -92,7 +119,9 @@ const ContactSection = ({ data }: any) => {
                   </p>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label className="text-base text-white">Your Email</label>
+                  <label className="text-base text-white">
+                    Your Email (optionl)
+                  </label>
                   <input
                     type="email"
                     name="email"
@@ -102,29 +131,124 @@ const ContactSection = ({ data }: any) => {
                     placeholder="Email"
                     className="w-full px-4 py-3 font-medium text-lg text-white rounded-xl placeholder:text-gray border border-gray bg-primaryRGB"
                   />
+                </div>
+
+                <div className="flex flex-col gap-2">
+                  <label className="text-base text-white">
+                    Your Phone Number
+                  </label>
+                  <input
+                    type="number"
+                    name="phoneNumber"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.phoneNumber}
+                    placeholder="Phone Number"
+                    className="w-full px-4 py-3 font-medium text-lg text-white rounded-xl placeholder:text-gray border border-gray bg-primaryRGB"
+                  />
                   <p className="text-sm text-[red]">
                     {" "}
-                    {errors.email && touched.email && errors.email}
+                    {errors.phoneNumber &&
+                      touched.phoneNumber &&
+                      errors.phoneNumber}
                   </p>
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <label className="text-base text-white">Your Subject</label>
-                  <input
-                    type="subject"
-                    name="subject"
+                  <label className="text-base text-white">Your Country</label>
+                  <select
+                    name="country"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={values.subject}
-                    placeholder="subject"
+                    value={values.country as any}
+                    className="appearance-none w-full px-4 py-3 font-medium text-lg text-white rounded-xl  border border-gray bg-primaryRGB"
+                  >
+                    <option
+                      selected
+                      value=""
+                      className="font-medium text-l text-gray"
+                    >
+                      Choose a Country
+                    </option>
+                    {countries?.map((item: any, index: number) => (
+                      <option key={index} value={item?.label}>
+                        {item?.label}
+                      </option>
+                    ))}
+                  </select>
+                  {/* {errors.country && touched.country && errors.country} */}
+                  {!values.country && (
+                    <p className="text-sm text-[red]">Required</p>
+                  )}
+                </div>
+
+                <div className="flex flex-col gap-2">
+                  <label className="text-base text-white">Your City</label>
+                  <input
+                    type="name"
+                    name="city"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.city}
+                    placeholder="city"
                     className="w-full px-4 py-3 font-medium text-lg text-white rounded-xl placeholder:text-gray border border-gray bg-primaryRGB"
-                  />{" "}
+                  />
                   <p className="text-sm text-[red]">
-                    {errors.subject && touched.subject && errors.subject}
+                    {errors.city && touched.city && errors.city}
+                  </p>
+                </div>
+
+                <div className="flex flex-col gap-2">
+                  <label className="text-base text-white">
+                    Your postal code
+                  </label>
+                  <input
+                    type="number"
+                    name="postalCode"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.postalCode}
+                    placeholder="Postal code"
+                    className="w-full px-4 py-3 font-medium text-lg text-white rounded-xl placeholder:text-gray border border-gray bg-primaryRGB"
+                  />
+                  <p className="text-sm text-[red]">
+                    {" "}
+                    {errors.postalCode &&
+                      touched.postalCode &&
+                      errors.postalCode}
+                  </p>
+                </div>
+
+                <div className="flex flex-col gap-2">
+                  <label className="text-base text-white">Your Courses</label>
+
+                  <select
+                    name="courses"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.courses}
+                    className="appearance-none w-full px-4 py-3 font-medium text-lg text-white rounded-xl  border border-gray bg-primaryRGB"
+                  >
+                    <option selected className="font-medium text-l text-gray">
+                      Choose a courses
+                    </option>
+                    <option value="IELTS">IELTS</option>
+                    <option value="ENGLISH SPEAKING">English Speaking</option>
+                    <option value="SPOUSE VISA COURSE">
+                      Spouse Vise Course
+                    </option>
+                    <option value="AMBESSY INTERVIEW">Ambessy Interview</option>
+                    <option value="CREATIVE WRITING">Creative Writing</option>
+                    <option value="PTE COURSE">PTE Course</option>
+                  </select>
+                  <p className="text-sm text-[red]">
+                    {errors.courses && touched.courses && errors.courses}
                   </p>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label className="text-base text-white">Your Message</label>
+                  <label className="text-base text-white">
+                    Your Message (optinal)
+                  </label>
                   <textarea
                     name="message"
                     onChange={handleChange}
@@ -134,9 +258,6 @@ const ContactSection = ({ data }: any) => {
                     rows={5}
                     className="w-full px-4 py-3 font-medium text-lg text-white rounded-xl placeholder:text-gray border border-gray bg-primaryRGB"
                   />
-                  <p className="text-sm text-[red]">
-                    {errors.message && touched.message && errors.message}
-                  </p>
                 </div>
 
                 <button
