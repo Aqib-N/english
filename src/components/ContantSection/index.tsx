@@ -120,7 +120,7 @@ const ContactSection = ({ data }: any) => {
                 </div>
                 <div className="flex flex-col gap-2">
                   <label className="text-base text-white">
-                    Your Email (optionl)
+                    Your Email (Optional)
                   </label>
                   <input
                     type="email"
@@ -247,7 +247,7 @@ const ContactSection = ({ data }: any) => {
                 </div>
                 <div className="flex flex-col gap-2">
                   <label className="text-base text-white">
-                    Your Message (optinal)
+                    Your Message (Optional)
                   </label>
                   <textarea
                     name="message"
