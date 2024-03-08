@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+
 import { Formik } from "formik";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -68,6 +69,11 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
+        <meta name="google" content="notranslate" key="notranslate" />
+        <meta name="robots" content="all" />
+      </Head>
       <div className="w-full h-screen relative   ">
         {heroSection?.bannerImages?.map((item: any, index: number) => (
           <div

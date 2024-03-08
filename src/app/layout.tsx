@@ -9,9 +9,9 @@ export const metadata: Metadata = {
   description:
     "Discover the joy of language learning at our website! Master English, Italian, French, German, and Spanish with our interactive lessons and expert guidance. Join our vibrant community for personalized feedback and cultural insights. Start your multilingual journey today! ",
 
-  // icons: {
-  //   icon: "/images/rahul.png",
-  // },
+  icons: {
+    icon: "/MSS.png",
+  },
 };
 
 const interFont = Inter({
