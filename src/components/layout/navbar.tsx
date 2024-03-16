@@ -30,13 +30,18 @@ export const Navbar = () => {
   return (
     <div className="w-full absolute top-0 left-0 z-[1]">
       <div className="max-w-[1440px] mx-auto flex items-center justify-between py-5 px-[120px] max-md:px-[20px] ">
-        <Image
-          src={navbarData?.webLogo?.url}
-          alt={"email"}
-          width={24}
-          height={24}
-        />
+        <div className="flex items-center gap-3">
+          <Image
+            src={navbarData?.webLogo?.url}
+            alt={"web logo"}
+            width={48}
+            height={48}
+          />
 
+          <h3 className=" font-bold text-gray1 text-base">
+            Multi Speaking Studio
+          </h3>
+        </div>
         <button
           onClick={() => setOpen(!open)}
           className="text-3xl w-[30px] h-[30px]absolute  cursor-pointer md:hidden"
@@ -55,7 +60,7 @@ export const Navbar = () => {
           {navbarData?.navLinks?.map((item: any, index: number) => (
             <Link
               key={index}
-              className=" font-normal text-lg"
+              className="font-normal text-lg"
               href={item?.pageLink || ""}
             >
               {item?.pageName}
