@@ -54,7 +54,7 @@ export const Navbar = () => {
         <div
           className={`w-max flex items-center gap-10  max-md:w-full max-md:h-[100vh]  max-md:pl-[20px] max-md:pt-[120px] max-md:pb-[50px] absolute md:static md:z-auto z-[-1] 
            max-md:bg-secondary left-0 max-md:flex-col  transition-all duration-500 ease-in ${
-             open ? "top-0" : "top-[-690px]"
+             open ? "top-0" : "top-[-1200px]"
            }  `}
         >
           {navbarData?.navLinks?.map((item: any, index: number) => (
