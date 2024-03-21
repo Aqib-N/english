@@ -32,19 +32,19 @@ export default function Home() {
 
   useEffect(() => {
     const heroSectionData = data?.homePages?.[0]?.sections?.filter(
-      (i: any) => i.sectionName === "hero section",
+      (i: any) => i.sectionName === "hero section"
     );
     const serviceSectionData = data?.homePages?.[0]?.sections?.filter(
-      (i: any) => i.sectionName === "service section",
+      (i: any) => i.sectionName === "service section"
     );
     const aboutSectionData = data?.homePages?.[0]?.sections?.filter(
-      (i: any) => i.sectionName === "about section",
+      (i: any) => i.sectionName === "about section"
     );
     const clientSectionData = data?.homePages?.[0]?.sections?.filter(
-      (i: any) => i.sectionName === "client section",
+      (i: any) => i.sectionName === "client section"
     );
     const contactSectionData = data?.homePages?.[0]?.sections?.filter(
-      (i: any) => i.sectionName === "contact section",
+      (i: any) => i.sectionName === "contact section"
     );
     setContactSection(contactSectionData?.[0]);
     setClientSection(clientSectionData?.[0]);
@@ -78,9 +78,9 @@ export default function Home() {
         {heroSection?.bannerImages?.map((item: any, index: number) => (
           <div
             key={index}
-            className=" w-full h-screen top-0 left-0 absolute bg-no-repeat bg-cover bg-center"
+            className=" w-full h-screen top-0 left-0 absolute bg-no-repeat bg-cover bg-center "
             style={{
-              backgroundImage: `url(${
+              backgroundImage: ` linear-gradient(rgba(4, 24, 30, 0.7), rgba(4, 24, 30, 0.7)), url(${
                 item?.heroImage?.[0]?.url || "/images/banner-bg.png"
               })`,
             }}

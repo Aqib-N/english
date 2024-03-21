@@ -22,13 +22,13 @@ export const Navbar = () => {
 
   useEffect(() => {
     const navBarSectionData = data?.homePages?.[0]?.sections?.filter(
-      (i: any) => i.sectionName === "navbar",
+      (i: any) => i.sectionName === "navbar"
     );
     setNavbarData(navBarSectionData?.[0]);
   }, [data?.homePages]);
 
   return (
-    <div className="w-full absolute top-0 left-0 z-[1]">
+    <div className="w-full  top-0 left-0 z-[99] fixed  backdrop-blur  ">
       <div className="max-w-[1440px] mx-auto flex items-center justify-between py-5 px-[120px] max-md:px-[20px] ">
         <div className="flex items-center gap-3">
           <Image
@@ -52,9 +52,9 @@ export const Navbar = () => {
           />
         </button>
         <div
-          className={`w-max flex items-center gap-10  max-md:w-full  max-md:pl-[20px] max-md:pt-[100px] max-md:pb-[50px] absolute md:static md:z-auto z-[-1] 
+          className={`w-max flex items-center gap-10  max-md:w-full max-md:h-[100vh]  max-md:pl-[20px] max-md:pt-[120px] max-md:pb-[50px] absolute md:static md:z-auto z-[-1] 
            max-md:bg-secondary left-0 max-md:flex-col  transition-all duration-500 ease-in ${
-             open ? "top-0" : "top-[-490px]"
+             open ? "top-0" : "top-[-690px]"
            }  `}
         >
           {navbarData?.navLinks?.map((item: any, index: number) => (
